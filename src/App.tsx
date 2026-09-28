@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Mail, MapPin, MessageCircle } from "lucide-react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 // --- Custom Hook for Typing Effect ---
 const useTypewriter = (
@@ -419,7 +419,7 @@ const Experience = () => {
   );
 };
 
-const Contact = ({ contactUs, loading, setLoading }: any) => {
+const Contact = () => {
   return (
     <section id="contact" className="py-24 px-6 relative bg-slate-950/50">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -466,7 +466,7 @@ const Contact = ({ contactUs, loading, setLoading }: any) => {
           viewport={{ once: true }}
           className="glass-card p-8 rounded-2xl"
         >
-          <form className="space-y-5" onSubmit={contactUs}>
+          <form className="space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <input
                 type="text"
@@ -490,7 +490,7 @@ const Contact = ({ contactUs, loading, setLoading }: any) => {
               className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all resize-none"
             ></textarea>
             <button className="w-full py-3 mt-2 rounded-lg bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-bold tracking-wide hover:shadow-[0_0_20px_rgba(168,85,247,0.6)] transition-all transform hover:-translate-y-1">
-              {loading ? "Sending msg..." : "Connect Now"}
+              Connect Now
             </button>
           </form>
         </motion.div>
@@ -500,19 +500,6 @@ const Contact = ({ contactUs, loading, setLoading }: any) => {
 };
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
-
-  const contactUs = () => {
-    console.log("contact from app");
-    // setLoading(true);
-    // setTimeout(() => {
-    //   toast("Your message sent ");
-    //   setLoading(false);
-    // }, 500);
-  };
-
-  const notify = () => toast("Wow so easy!");
-
   const phoneNumber = "917376147918"; // Replace with your WhatsApp number
   const message =
     "Hello Nausheen, I visited your portfolio and would like to connect.";
@@ -531,11 +518,7 @@ export default function App() {
       <Hero />
       <Works />
       <Experience />
-      <Contact
-        contactUs={contactUs}
-        loading={loading}
-        setLoading={setLoading}
-      />
+      <Contact />
 
       <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/5">
         <p>
